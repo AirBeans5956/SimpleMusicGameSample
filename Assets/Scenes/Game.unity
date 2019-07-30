@@ -1383,9 +1383,9 @@ MonoBehaviour:
   - {fileID: 1270561157}
   notePrefab: {fileID: 3846971773747767628, guid: b1eab0ab06b4c44cda7a04584f98c659,
     type: 3}
-  fumenFile: {fileID: 0}
   music: {fileID: 0}
-  hitSound: {fileID: 8300000, guid: 5a2f3b65bd2fc4e5a89ec8f8df158df0, type: 3}
+  hitSound: {fileID: 0}
+  fumenFile: {fileID: 0}
   comboText: {fileID: 244234847}
   goodCountText: {fileID: 132506694}
   missCountText: {fileID: 1775253661}
