@@ -132,9 +132,9 @@ public class GameManager : MonoBehaviour
         // ノーツが残っているときだけノーツ処理
         if (notes.Count != 0) {
             // 入力処理
-            foreach (var key in keys) {
+            foreach (var key in keys) { // 各レーンに対応したキーについて処理
                 Note judgedNote = null; // 判定対象のノーツが代入される
-                if (Input.GetKeyDown(key)) { // そもそもキーが押されてなければ処理しない
+                if (Input.GetKeyDown(key)) { // レーンに対応したキーは押されているか?
                     foreach (var note in notes) { // すべてのノーツをチェック
                         if (note.targetKey != key) { continue; } // レーンが違うノーツは処理しない
                         float timeDiffAbs = Mathf.Abs(note.time - musicPlayer.time); // 曲の再生位置とノーツの時間の差分を絶対値で取る
