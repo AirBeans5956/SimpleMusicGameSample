@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
             // 成功・ミス判定どちらもされず、残ったノーツのスクロール処理
             foreach(var note in notes) {
                 var diffTime = note.time - musicPlayer.time; // 曲とノーツの時間の差分を取る
-                // 差分の時間を、ノーツ表示時間割って、ノーツの表示高さで掛ける
+                // 差分の時間を、ノーツ表示で時間割って、ノーツの表示高さで掛ける
                 var noteY = showNoteLocalDistance * (Mathf.Min(diffTime, showNoteLocalDistance) / showNoteTimeRangeSec);
 
                 // ノーツのY座標を更新
@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviour
                 var noteList = noteDataArray[unit]; // この拍に出現するノーツを取得
                 float noteTime = measureHeadTime + (unitTime * unit); // この拍の時間を算出(小節の始まりの時間+拍あたりの時間×今の小節内の拍数)
                 for(var i = 0; i < noteList.Length; i++) { // 現在の拍に出現するノーツを処理
-                    Note note = null;
+                    Note note = null; // 生成されたノーツを保持
                     switch(noteList[i]) { // 数字を読み、ノーツ生成
                         case '1':
                             note = Instantiate(notePrefab, lanes[0]);
@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviour
                             note = Instantiate(notePrefab, lanes[3]);
                             note.targetKey = keys[3];
                             break;
-                        default:
+                        default: // 存在しないレーンには生成処理は行わない
                             break;
                     }
                     // ノーツが生成されたら、ノーツ配列に追加しておき、Y座標を初期化
